@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <h1>Crea tu propio Sandwich</h1>
+    </header>
+
+    <aside>
+        <br>
+        <h2>Base del sándwich</h2>
+        <p>Carne, Pollo o Veggie.</p>
+        <h2> El tipo de pan</h2>
+        <p>Blanco, Negro o S/gluten.</p>
+        <h2>Condimentos</h2>
+        <p>Puede tener queso, tomate, lechuga, cebolla, mayonesa y mostaza.</p>
+        <h2>Precios:</h2>
+        <h3>Base precios: </h3>
+        <p>Carne: 200$<br>Pollo: 150$<br>Veggie: 100$</p><br>
+        <h3>Pan precios: </h3> 
+        <p>Pan blanco: 50$<br> Pan negro: 60$<br> Pan s/gluten: 75$</p>
+        <h2>Condimentos</h2>
+        <p>Queso: 20$<br> tomate: 15$<br> lechuga: 10$<br> cebolla: 15$<br> mayonesa: 5$<br> mostaza: 5$</p>
+        <br>
+        <br>
+    </aside>
+    <main>
+        <form name="formu">
+            <div class="box">
+                <div class="box-container">
+                    <br>
+                    <br>
+                    <div class="sandwich-contet">
+                        <h2>Contenido del Sandwich</h2>
+                        <input type="text" id="sandwich" name="sandwich"><br>
+                    </div>
+
+                    <div class="pan-opcion">
+                        <h2>Elija el tipo de pan</h2>
+                        <input type="text" id="pan" name="pan"><br>
+                        </select>
+                    </div>
+
+
+
+                    <div class="extra">
+ 
+                        <h2>Condimentos</h2>
+                        <h3>Puede elegir la siguiente lista de condimentos disponibles</h3>
+                        <h4>Queso, Tomate, Lechuga, Cebolla, Mayonesa y Mostaza.</h4>
+                        <input type="text" id="condimento" name="condimento">
+                        <br>
+                        <br>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <input type="button" class="btn btn-primary" onclick="obtenerdatos()" value="Enviar">
+              </div>
+              <div class="box">
+                <div class="box-container">
+                    <h2>Contenido:</h2><input type="text" name="contenido" id="contenido" class="contenidos">
+                    <h2>Total:</h2><input type="text" name="precio" id="precio" class="contenidos">
+
+                </div>
+                </div>
+        </form>
+
+    </main>
+
+    <footer>
+        <nav>
+            <ol>
+                <li>
+                    <a id="link" href="">Seguridad</a>
+                </li>
+                <li>
+
+                    <a id="link" href="">Defensa al consumidor</a>
+                </li>
+                <li>
+                    <a id="link" href="">Proteccion de datos personales</a>
+                </li>
+                <li>
+                    <a id="link" href="">Comisiones</a>
+                </li>
+                <li>
+                    <a id="link" href="">Aviso legal</a>
+                </li>
+            </ol>
+        </nav>
+        <p>
+            &copyCopyright 2001-2022 Sandwich. Todos los derechos reservados.<br>Prohibida la duplicación, distribución o
+            almacenamiento en cualquier medio.
+        </p>
+    </footer>
+    <script type="text/javascript">
+        function obtenerdatos(){
+            var sandwich=document.getElementById("sandwich").value;
+            var pan=document.getElementById("pan").value;
+            var condimento=document.getElementById("condimento").value;
+            document.formu.contenido.value=sandwich+","+pan+","+condimento;
+            let total =0;
+            let mensajeSalida="";
+            if (sandwich  === "carne"){
+                total += 200;
+            }
+            else if(sandwich ==="pollo"){
+                total +=150;
+                mensajeSalida="Por favor ingrese un tipo de sandwich correcto.\n";
+            }
+            else if(sandwich ==="veggie"){
+                total +=100;
+                mensajeSalida="Por favor ingrese un tipo de sandwich correcto.\n";
+            }
+
+            if (pan === "blanco"){
+            total  +=50;
+            }
+            else if(pan ==="negro"){
+                total +=60;
+                mensajeSalida="Por favor ingrese un tipo de sandwich correcto.\n";
+            }
+            else if(pan ==="sin gluten"){
+                total +=75;
+                mensajeSalida="Por favor ingrese un tipo de sandwich correcto.\n";
+            }
+            if (condimento.includes("tomate")) total+=15;
+            if (condimento.includes("queso")) total+=20;
+            if (condimento.includes("lechuga")) total+=10;
+            if (condimento.includes("cebolla")) total+=15;
+            if (condimento.includes("mayonesa")) total+=5;
+            if (condimento.includes("mostaza")) total+=5;
+            document.formu.precio.value=total+"$";
+        }
+
+
+    </script>
+</body>
+
+</html>
